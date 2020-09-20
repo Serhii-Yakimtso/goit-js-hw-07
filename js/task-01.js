@@ -17,41 +17,15 @@ const findListItems = findCategoryById.children;
 
 console.log(`В списке ${findListItems.length} категории.`);
 
-// console.log(
-//   `Категория: `,
-//   findListItems[0].querySelector(".item > h2").textContent
-// );
-// console.log(
-//   `Категория: `,
-//   findListItems[0].querySelector(".item > ul").children.length
-// );
-// console.log(
-//   `Категория: `,
-//   findListItems[1].querySelector(".item > h2").textContent
-// );
-// console.log(
-//   `Категория: `,
-//   findListItems[1].querySelector(".item > ul").children.length
-// );
-// console.log(
-//   `Категория: `,
-//   findListItems[2].querySelector(".item > h2").textContent
-// );
-// console.log(
-//   `Категория: `,
-//   findListItems[2].querySelector(".item > ul").children.length
-// );
-
-const uh = findCategoryById.querySelectorAll("h2");
-console.log(uh);
-console.log(uh[0].textContent);
-
 const descriptionCategory = function (array) {
-  for (let el of array) {
-    console.log(`Категория: `, el.querySelector(".item > h2").textContent);
+  for (let i = 0; i < findListItems.length; i += 1) {
+    console.log(
+      `Категория: `,
+      array[i].querySelector(".item > h2").textContent
+    );
     console.log(
       `Количество элементов: `,
-      el.querySelector(".item > ul").children.length
+      array[i].querySelector(".item > ul").children.length
     );
   }
 };
