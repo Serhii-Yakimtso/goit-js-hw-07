@@ -6,10 +6,10 @@
 // <h1>Привет, <span id="name-output">незнакомец</span>!</h1>
 
 const inputEl = document.querySelector("#name-input");
-console.log(inputEl);
+// console.log(inputEl);
 
 const massageOutput = document.querySelector("#name-output");
-console.log(massageOutput);
+// console.log(massageOutput);
 
 function changeName(event) {
   console.log(event.currentTarget.value);
