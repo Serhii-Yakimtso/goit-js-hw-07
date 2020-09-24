@@ -30,20 +30,28 @@ const images = [
 console.table(images);
 
 const findGalleryList = document.querySelector("#gallery");
-console.log(findGalleryList);
+
+// const addImage = images.map((imageElement) => {
+//   findGalleryList.style.display = "flex";
+
+//   const galleryElement = document.createElement("li");
+//   galleryElement.classList.add("Js-gallery-element");
+
+//   const galleryImage = document.createElement("img");
+//   galleryImage.src = imageElement.url;
+//   galleryImage.alt = imageElement.alt;
+//   galleryImage.width = 240;
+
+//   galleryElement.appendChild(galleryImage);
+
+//   return findGalleryList.appendChild(galleryElement);
+// });
 
 const addImage = images.map((imageElement) => {
-  findGalleryList.style.display = "flex";
+  const imageEl = `<li class="Js-gallery-element"><img src=${imageElement.url} alt=${imageElement.alt} width="240"></li>`;
 
-  const galleryElement = document.createElement("li");
-  galleryElement.classList.add("Js-gallery-element");
-
-  const galleryImage = document.createElement("img");
-  galleryImage.src = imageElement.url;
-  galleryImage.alt = imageElement.alt;
-  galleryImage.width = 240;
-
-  galleryElement.appendChild(galleryImage);
-
-  return findGalleryList.appendChild(galleryElement);
+  return imageEl;
 });
+
+findGalleryList.insertAdjacentHTML("afterbegin", addImage);
+findGalleryList.style.display = "flex";

@@ -28,9 +28,19 @@ const ingredients = [
 ];
 console.table(ingredients);
 
+// const addIngredientsEl = ingredients.map((ingredient) => {
+//   const ingredientEl = document.createElement("li");
+//   ingredientEl.textContent = ingredient;
+//   //   console.log(ingredientEl);
+//   return findIngredientsList.appendChild(ingredientEl);
+// });
+
 const addIngredientsEl = ingredients.map((ingredient) => {
   const ingredientEl = document.createElement("li");
   ingredientEl.textContent = ingredient;
-  //   console.log(ingredientEl);
-  return findIngredientsList.appendChild(ingredientEl);
+  // console.log(ingredientEl);
+  // console.log(ingredientEl.textContent);
+  return ingredientEl;
 });
+// console.log(addIngredientsEl);
+findIngredientsList.append(...addIngredientsEl);

@@ -1,4 +1,5 @@
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item.Получится 'В списке 3 категории.'.
+// Посчитает и выведет в консоль количество категорий в ul#categories,
+// то есть элементов li.item.Получится 'В списке 3 категории.'.
 
 // Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка элемента(тега h2)
 // и количество элементов в категории(всех вложенных в него элементов li).
@@ -9,16 +10,18 @@
 // Количество элементов: 4
 
 const findCategoryById = document.querySelector("#categories");
-// console.log(findCategoryById);
 
 const findListItems = findCategoryById.children;
-// console.log(findListItems);
-// console.log(findListItems.length);
 
 console.log(`В списке ${findListItems.length} категории.`);
 
+// console.log(findCategoryById);
+
+// console.log(findListItems);
+// console.log(findListItems.length);
+
 const descriptionCategory = function (array) {
-  for (let i = 0; i < findListItems.length; i += 1) {
+  for (let i = 0; i < array.length; i += 1) {
     console.log(
       `Категория: `,
       array[i].querySelector(".item > h2").textContent
@@ -30,4 +33,12 @@ const descriptionCategory = function (array) {
   }
 };
 
-console.log(descriptionCategory(findListItems));
+descriptionCategory(findListItems);
+
+// findListItems.forEach(element) {
+//   console.log(`Категория: `, element.querySelector(".item > h2").textContent),
+//   console.log(
+//     `Количество элементов: `,
+//     element.querySelector(".item > ul").children.length
+//   );
+// };
