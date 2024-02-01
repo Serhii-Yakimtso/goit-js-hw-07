@@ -36,5 +36,6 @@ images.forEach(({ url, alt }) => {
   galleryList.append(img);
   img.setAttribute('src', url);
   img.setAttribute('alt', alt);
+  img.setAttribute('width', '360px');
 });
 console.log(galleryList);
