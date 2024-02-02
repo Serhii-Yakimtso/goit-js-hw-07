@@ -12,10 +12,15 @@ const btnDestroy = document.querySelector(
 );
 const input = document.querySelector('input');
 const box = document.querySelector('#boxes');
-let width = 30;
-let height = 30;
 
 function createBoxes() {
+  while (box.firstChild) {
+    box.firstChild.remove();
+  }
+
+  let width = 30;
+  let height = 30;
+
   if (input.value >= 1 && input.value <= 100) {
     for (let i = 0; i < input.value; i++) {
       box.insertAdjacentHTML('beforeend', `<div></div>`);
@@ -33,6 +38,6 @@ btnCreate.addEventListener('click', createBoxes);
 btnDestroy.addEventListener('click', () => {
   while (box.firstChild) {
     box.firstChild.remove();
-    input.value = '';
   }
+  input.value = '';
 });
