@@ -10,34 +10,35 @@ const btnCreate = document.querySelector(
 const btnDestroy = document.querySelector(
   'button[data-destroy]'
 );
+
 const input = document.querySelector('input');
 const box = document.querySelector('#boxes');
 
-function createBoxes() {
-  while (box.firstChild) {
-    box.firstChild.remove();
-  }
+btnCreate.addEventListener('click', () => {
+  createBoxes(input.value);
+  input.value = '';
+});
 
-  let width = 30;
-  let height = 30;
+btnDestroy.addEventListener('click', destroyBoxes);
 
-  if (input.value >= 1 && input.value <= 100) {
-    for (let i = 0; i < input.value; i++) {
-      box.insertAdjacentHTML('beforeend', `<div></div>`);
-      const lastChild = box.lastElementChild;
-      lastChild.style.width = `${width}px`;
-      lastChild.style.height = `${height}px`;
-      lastChild.style.backgroundColor = getRandomHexColor();
-      width += 10;
-      height += 10;
+function createBoxes(amount) {
+  destroyBoxes();
+
+  let size = 30;
+
+  const array = [];
+
+  if (amount >= 1 && amount <= 100) {
+    for (let index = 0; index < amount; index++) {
+      const string = `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
+      array.push(string);
+      size += 10;
     }
+
+    box.insertAdjacentHTML('beforeend', array.join(''));
   }
 }
 
-btnCreate.addEventListener('click', createBoxes);
-btnDestroy.addEventListener('click', () => {
-  while (box.firstChild) {
-    box.firstChild.remove();
-  }
-  input.value = '';
-});
+function destroyBoxes() {
+  box.innerHTML = '';
+}
