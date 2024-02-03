@@ -18,9 +18,7 @@ function handleSubmit(e) {
     return;
   }
 
-  const obj = {};
-  obj.email = email;
-  obj.password = password;
+  const obj = { email, password };
 
   form.reset();
   console.log(obj);

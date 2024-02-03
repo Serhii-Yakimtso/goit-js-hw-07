@@ -6,16 +6,18 @@ function getRandomHexColor() {
 // console.log(getRandomHexColor());
 
 const body = document.querySelector('body');
-console.log(body);
+// console.log(body);
 
 const text = document.querySelector('.color');
-console.log(text);
+// console.log(text);
 
 const btn = document.querySelector('.change-color');
-console.log(btn);
+// console.log(btn);
 
 function changeBodyBackroundColor() {
-  body.style.backgroundColor = getRandomHexColor();
-  text.textContent = getRandomHexColor();
+  const randomColor = getRandomHexColor();
+  body.style.backgroundColor = randomColor;
+  text.textContent = randomColor;
 }
+
 btn.addEventListener('click', changeBodyBackroundColor);
