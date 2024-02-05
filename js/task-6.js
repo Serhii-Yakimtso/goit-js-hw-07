@@ -15,6 +15,7 @@ const input = document.querySelector('input');
 const box = document.querySelector('#boxes');
 
 btnCreate.addEventListener('click', () => {
+  destroyBoxes();
   createBoxes(input.value);
   input.value = '';
 });
@@ -22,20 +23,22 @@ btnCreate.addEventListener('click', () => {
 btnDestroy.addEventListener('click', destroyBoxes);
 
 function createBoxes(amount) {
-  destroyBoxes();
+  let width = 30;
+  let height = 30;
 
-  let size = 30;
+  const array = new Array(Number(amount)).fill('');
 
-  const array = [];
+  const markup = array
+    .map(arr => {
+      arr = `<div style="width: ${width}px; height: ${height}px; background-color: ${getRandomHexColor()}"></div>`;
+      width += 10;
+      height += 10;
+      return arr;
+    })
+    .join('');
 
   if (amount >= 1 && amount <= 100) {
-    for (let index = 0; index < amount; index++) {
-      const string = `<div style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}"></div>`;
-      array.push(string);
-      size += 10;
-    }
-
-    box.insertAdjacentHTML('beforeend', array.join(''));
+    box.insertAdjacentHTML('beforeend', markup);
   }
 }
 

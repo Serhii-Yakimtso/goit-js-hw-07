@@ -27,25 +27,11 @@ const images = [
 
 const galleryList = document.querySelector('.gallery');
 
-galleryList.insertAdjacentHTML(
-  'beforeend',
-  images.map(
+const markup = images
+  .map(
     ({ url, alt }) =>
       `<li><img src="${url}" alt="${alt}" width="360px"></li>`
   )
-);
+  .join('');
 
-// const list = images
-//   .map(
-//     ({ url, alt }) =>
-//       `<li><img src="${url}" alt="${alt}" width="360px"></li>`
-//   )
-//   .join();
-
-// const list = images.map(({ url, alt }) => {
-//   galleryList.insertAdjacentHTML(
-//     'beforeend',
-//     `<li><img src="${url}" alt="${alt}" width="360px"></li>`
-//   );
-// });
-// galleryList.insertAdjacentHTML('beforeend', list);
+galleryList.insertAdjacentHTML('beforeend', markup);
